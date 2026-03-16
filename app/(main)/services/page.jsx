@@ -4,67 +4,42 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-const services = [
+const interventions = [
   {
-    category: "Livelihoods",
-    image: "/images/farming.jpg",
-    items: [
-      { title: "Microfinance", desc: "Sustainable credit solutions for MSMEs and VSLAs." },
-      { title: "Smallholder Farming", desc: "Supporting poultry and cassava growers in Bo and Moyamba." }
-    ]
+    category: "Financial Inclusion",
+    title: "Prioritized Enterprise Financing",
+    desc: "We prioritize financing to micro, small, medium enterprises (MSMEs) and agricultural cooperatives, ensuring that capital reaches the engines of local economic growth.",
+    image: "/images/financing.jpg",
+    details: ["MSME Focus", "Agricultural Cooperatives", "Direct Capital Injection"]
   },
   {
-    category: "Education",
-    image: "/images/classroom.jpg",
-    items: [
-      { title: "Teacher Training", desc: "Enhancing the capacity of educators for better learning outcomes." },
-      { title: "Education Monitoring", desc: "Ensuring standards are met through stakeholder engagement." }
-    ]
+    category: "Income Generation",
+    title: "Empowering the Active Poor",
+    desc: "We make it possible for the active poor to increase their household incomes through the extension of affordable financing to both individuals and organized groups.",
+    image: "/images/income-growth.jpg",
+    details: ["Individual Loans", "Group Solidarity Lending", "Affordable Interest Rates"]
   },
   {
-    category: "WASH",
-    image: "/images/water-pump.jpg",
-    items: [
-      { title: "Clean Water Facilities", desc: "Providing safe, accessible water points for rural communities." },
-      { title: "Sanitation Awareness", desc: "Promoting hygiene practices to prevent waterborne diseases." }
-    ]
+    category: "Job Creation",
+    title: "Direct & Indirect Employment",
+    desc: "We create employment opportunities across Sierra Leone through strategic financing for individuals and groups engaged in viable small and medium enterprises.",
+    image: "/images/employment.jpg",
+    details: ["SME Job Growth", "Entrepreneurial Support", "Viable Business Funding"]
   },
   {
-    category: "Health & SRHR",
-    image: "/images/health-talk.jpg",
-    items: [
-      { title: "SRH Awareness", desc: "Educating communities on sexual and reproductive health." },
-      { title: "Family Planning", desc: "Advocating for 'Planned Births, Happy Women' for family well-being." }
-    ]
-  },
-  {
-    category: "Climate & Youth",
-    image: "/images/youth-leader.jpg",
-    items: [
-      { title: "Climate Action", desc: "Policy advocacy and environmental protection initiatives." },
-      { title: "Youth Empowerment", desc: "Leadership training and advocacy for adolescents." }
-    ]
+    category: "Sustainability",
+    title: "Capacity Building & Research",
+    desc: "We strengthen the management capacities of our clients through training and conduct rigorous market research to develop products that suit the unique needs of our target clients.",
+    image: "/images/research.jpg",
+    details: ["Management Training", "Market-Driven Products", "Sustainable Business Coaching"]
   }
 ];
 
 // --- ANIMATION VARIANTS ---
 const sectionVariants = {
   hidden: { opacity: 0, y: 50 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: "easeOut" } 
-  }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
 };
-
-const imageVariants = (index) => ({
-  hidden: { opacity: 0, x: index % 2 === 0 ? -50 : 50 },
-  visible: { 
-    opacity: 1, 
-    x: 0, 
-    transition: { duration: 0.8, delay: 0.2 } 
-  }
-});
 
 export default function ServicesPage() {
   return (
@@ -76,22 +51,22 @@ export default function ServicesPage() {
           animate={{ opacity: 1, y: 0 }}
           className="max-w-7xl mx-auto px-6 relative z-10"
         >
+          <span className="text-blue-400 font-bold tracking-[0.3em] uppercase text-sm mb-4 block">Our Impact</span>
           <h1 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">
-            Our Interventions
+            What We Do
           </h1>
           <p className="text-blue-100 text-lg md:text-xl max-w-2xl leading-relaxed">
-            ACoDA facilitates development through a comprehensive approach to social and 
-            economic empowerment across Sierra Leone.
+            ACoDA Microfinance is dedicated to transforming lives in Sierra Leone by 
+            providing inclusive financial services and the knowledge required to use them effectively.
           </p>
         </motion.div>
-        {/* Decorative subtle pattern or gradient */}
         <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-blue-800/50 to-transparent pointer-events-none" />
       </section>
 
-      {/* SERVICES GRID */}
+      {/* INTERVENTIONS GRID */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 space-y-32">
-          {services.map((service, index) => (
+          {interventions.map((item, index) => (
             <motion.div 
               key={index} 
               initial="hidden"
@@ -103,62 +78,48 @@ export default function ServicesPage() {
               }`}
             >
               {/* IMAGE COLUMN */}
-              <motion.div 
-                variants={imageVariants(index)}
-                className="w-full md:w-1/2"
-              >
-                <div className="relative h-[400px] md:h-[500px] w-full rounded-[2rem] overflow-hidden shadow-2xl group">
+              <div className="w-full md:w-1/2">
+                <div className="relative h-[400px] md:h-[500px] w-full rounded-[3rem] overflow-hidden shadow-2xl group">
                   <Image
-                    src={service.image}
-                    alt={service.category}
+                    src={item.image}
+                    alt={item.title}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                  <div className="absolute top-6 left-6 bg-blue-600 text-white px-5 py-2 rounded-full text-xs font-black uppercase tracking-[0.2em] shadow-lg">
-                    {service.category}
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/20 to-transparent" />
                 </div>
-              </motion.div>
+              </div>
 
               {/* CONTENT COLUMN */}
               <div className="w-full md:w-1/2">
-                <motion.div
-                  initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                >
-                  <h2 className="text-4xl font-black text-gray-900 mb-8 flex items-center gap-4">
-                    <span className="h-1 w-12 bg-blue-600 rounded-full" />
-                    {service.category}
+                <div className="space-y-6">
+                  <span className="text-blue-600 font-black text-sm uppercase tracking-widest">{item.category}</span>
+                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+                    {item.title}
                   </h2>
+                  <p className="text-gray-600 text-lg leading-relaxed">
+                    {item.desc}
+                  </p>
                   
-                  <div className="space-y-10">
-                    {service.items.map((item, idx) => (
-                      <div key={idx} className="relative pl-6 border-l-2 border-blue-100 hover:border-blue-600 transition-colors duration-300">
-                        <h3 className="text-2xl font-bold text-blue-900 mb-3">
-                          {item.title}
-                        </h3>
-                        <p className="text-gray-600 text-lg leading-relaxed">
-                          {item.desc}
-                        </p>
-                      </div>
+                  <ul className="grid grid-cols-1 gap-4 pt-4">
+                    {item.details.map((detail, dIdx) => (
+                      <li key={dIdx} className="flex items-center gap-3 text-gray-800 font-medium">
+                        <span className="w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xs">✓</span>
+                        {detail}
+                      </li>
                     ))}
-                  </div>
+                  </ul>
 
-                  <motion.div 
-                    whileHover={{ x: 10 }}
-                    className="mt-12"
-                  >
+                  <div className="pt-8">
                     <Link 
-                      href="/contact" 
-                      className="inline-flex items-center text-blue-700 font-extrabold text-lg group"
+                      href="/apply" 
+                      className="inline-flex items-center text-blue-700 font-black text-lg group hover:gap-4 transition-all"
                     >
-                      Partner with us on this intervention 
-                      <span className="ml-3 transition-transform group-hover:translate-x-2">→</span>
+                      Access this service 
+                      <span className="ml-2">→</span>
                     </Link>
-                  </motion.div>
-                </motion.div>
+                  </div>
+                </div>
               </div>
             </motion.div>
           ))}
@@ -166,27 +127,28 @@ export default function ServicesPage() {
       </section>
 
       {/* CALL TO ACTION */}
-      <section className="bg-blue-50 py-24 relative overflow-hidden">
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          className="max-w-4xl mx-auto px-6 text-center relative z-10"
-        >
-          <h2 className="text-4xl font-black text-gray-900 mb-6">Need Financial Support?</h2>
-          <p className="text-gray-600 text-xl mb-12 leading-relaxed">
-            If you are an MSME, farmer, or part of a VSLA in our operational districts, 
-            you can apply for a loan today and scale your impact.
+      <section className="bg-blue-900 py-24 relative overflow-hidden text-white">
+        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+          <h2 className="text-4xl font-black mb-6">Partnering for Sustainable Growth</h2>
+          <p className="text-blue-100 text-xl mb-12 leading-relaxed">
+            Whether you are a micro-business owner looking for capital or a development 
+            partner looking to reach active rural communities, ACoDA is your gateway.
           </p>
-          <Link 
-            href="/apply" 
-            className="bg-blue-700 text-white px-12 py-5 rounded-2xl font-black text-xl hover:bg-blue-800 hover:shadow-2xl hover:-translate-y-1 transition-all inline-block shadow-xl"
-          >
-            Apply for a Loan Now
-          </Link>
-        </motion.div>
-        {/* Subtle background circles for "Professional" feel */}
-        <div className="absolute -top-24 -left-24 w-64 h-64 bg-blue-100 rounded-full opacity-50" />
-        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-blue-200/30 rounded-full opacity-50" />
+          <div className="flex flex-col sm:flex-row justify-center gap-6">
+            <Link 
+              href="/apply" 
+              className="bg-white text-blue-900 px-10 py-4 rounded-xl font-black text-lg hover:bg-blue-50 transition-colors shadow-xl"
+            >
+              Apply for Financing
+            </Link>
+            <Link 
+              href="/contact" 
+              className="bg-blue-700 text-white px-10 py-4 rounded-xl font-black text-lg hover:bg-blue-600 transition-colors border border-blue-500"
+            >
+              Inquire About Partnerships
+            </Link>
+          </div>
+        </div>
       </section>
     </main>
   );

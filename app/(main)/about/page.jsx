@@ -21,16 +21,16 @@ export default function AboutPage() {
   return (
     <main className="w-full bg-white overflow-hidden">
       
-      {/* 1. HERO SECTION - High Impact */}
+      {/* 1. HERO SECTION */}
       <section className="relative h-[500px] flex items-center justify-center text-white">
         <Image
-          src="/images/acoda-staff.jpg"
+          src="/images/acoda-staff.jpg" 
           alt="ACoDA Community Engagement"
           fill
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-800/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/95 to-blue-800/70"></div>
 
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
@@ -39,59 +39,76 @@ export default function AboutPage() {
           className="relative z-10 text-center px-6 max-w-4xl"
         >
           <span className="inline-block py-1 px-3 rounded-full bg-blue-500/30 border border-blue-400/30 text-blue-200 text-sm font-bold uppercase tracking-widest mb-4">
-            Established November 2024
+            Established October 2024
           </span>
           <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
-            Our Commitment to <br /> Community Transformation
+            Leading the Future of <br /> Microfinance in Sierra Leone
           </h1>
           <p className="text-lg md:text-xl text-blue-100 font-medium">
-            Bridging gaps and building futures through female-led development alternatives.
+            Empowering MSMEs and smallholder farmers through reasonable interest rates and inclusive growth.
           </p>
         </motion.div>
       </section>
 
-      {/* 2. WHO WE ARE - Narrated Content */}
-      <section className="py-24">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-          >
-            <h2 className="text-sm font-bold text-blue-700 uppercase tracking-widest mb-3">Our Identity</h2>
-            <h3 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
-              Who We Are
-            </h3>
-            <div className="space-y-6">
-              <p className="text-gray-600 text-lg leading-relaxed">
-                The **Agency for Community Development Alternatives (ACoDA)** is a national non-governmental organisation that stands as a beacon for inclusive growth. 
-              </p>
-              <p className="text-gray-600 text-lg leading-relaxed">
-                As a **female-led organisation**, we are uniquely positioned to address the specific needs of children, women, and community leaders.
-              </p>
-            </div>
-          </motion.div>
 
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="bg-slate-50 p-10 rounded-3xl border border-slate-100 shadow-inner relative"
-          >
-             <div className="absolute -top-4 -left-4 text-6xl text-blue-200 opacity-50">“</div>
-             <blockquote className="text-xl italic text-blue-900 font-medium leading-relaxed relative z-10">
-               "We leverage the energy of young people and the wisdom of community leaders to facilitate development that is both effective and sustainable."
-             </blockquote>
-             <div className="mt-8 flex items-center gap-4">
-               <div className="w-12 h-1 bg-blue-600"></div>
-               <p className="font-bold text-gray-900 uppercase text-sm tracking-widest">The ACoDA Team</p>
-             </div>
-          </motion.div>
+      {/* 3. CEO MESSAGE SECTION */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid lg:grid-cols-5 gap-12 items-start">
+            {/* CEO Image Container */}
+           {/* CEO Image Container */}
+<motion.div 
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  className="lg:col-span-2 lg:sticky lg:top-24 flex flex-col items-center lg:items-start"
+>
+  <div className="relative h-[500px] md:h-[550px] lg:h-[600px] w-full max-w-[450px] lg:max-w-none rounded-[2rem] overflow-hidden shadow-2xl border-8 border-white">
+    <Image
+      src="/images/ceo-aiesha.jpg"
+      alt="Mrs. Aiesha M. Tucker"
+      fill
+      className="object-cover object-top md:object-center" // Helps keep the face in view
+      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+    />
+  </div>
+  <div className="mt-6 text-center lg:text-left">
+    <h4 className="text-2xl font-black text-blue-900">Mrs. Aiesha M. Tucker</h4>
+    <p className="text-blue-600 font-bold uppercase tracking-widest text-sm">Founder & Executive Director</p>
+  </div>
+</motion.div>
+
+            {/* Message Content */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="lg:col-span-3 bg-white p-8 md:p-12 rounded-[2rem] shadow-sm border border-slate-100"
+            >
+              <div className="text-5xl text-blue-200 mb-6 font-serif">“</div>
+              <div className="prose prose-blue max-w-none text-gray-700 leading-relaxed space-y-6">
+                <p className="text-xl font-medium text-gray-900">
+                  At ACoDA Microfinance, our vision is rooted in the belief that access to financial services is a fundamental driver of economic empowerment and community development.
+                </p>
+                <p>
+                  As a female-owned and led institution, we respond to the pressing need for inclusive financial services that support the growth of entrepreneurs and small businesses across Sierra Leone. My vision is to build a trusted and innovative financial institution that expands opportunities for individuals often excluded from traditional banking.
+                </p>
+                <p>
+                  Through responsible lending, flexible products, and a commitment to client development, we aim to empower MSMEs to grow, increase incomes, and create sustainable livelihoods. Financial inclusion remains one of the most powerful tools for economic transformation. 
+                </p>
+                <p>
+                  We are committed to ensuring that entrepreneurs—especially women, farmers, small traders, and cooperative groups—have access not only to credit but also to the financial knowledge and support needed to manage and expand their businesses.
+                </p>
+                <p className="font-bold text-blue-900">
+                  Together with our clients and partners, ACoDA Microfinance will remain committed to building resilient businesses, stronger communities, and a more inclusive financial future for all.
+                </p>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* 3. VISION & MISSION */}
+      {/* 4. VISION & MISSION */}
       <section className="py-24 bg-blue-900 text-white">
         <motion.div 
           variants={staggerContainer}
@@ -100,25 +117,25 @@ export default function AboutPage() {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12"
         >
-          <motion.div variants={fadeInUp} className="relative p-10 rounded-2xl bg-white/5 border border-white/10">
+          <motion.div variants={fadeInUp} className="relative p-10 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
             <div className="text-4xl mb-6">👁️</div>
             <h2 className="text-2xl font-bold mb-4 text-blue-300 tracking-wide uppercase">Our Vision</h2>
             <p className="text-blue-50 text-xl leading-relaxed font-light">
-              Communities that are empowered to improve their own lives through appropriate and affordable development alternatives.
+              To be the lead Provider and Manager of microfinance services in Sierra Leone and Sub-Saharan Africa.
             </p>
           </motion.div>
 
-          <motion.div variants={fadeInUp} className="relative p-10 rounded-2xl bg-white/5 border border-white/10">
+          <motion.div variants={fadeInUp} className="relative p-10 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
             <div className="text-4xl mb-6">🎯</div>
             <h2 className="text-2xl font-bold mb-4 text-blue-300 tracking-wide uppercase">Our Mission</h2>
-            <p className="text-blue-50 text-xl leading-relaxed font-light">
-              To empower women, men and children through comprehensive support including education, health and economic opportunities.
+            <p className="text-blue-50 text-lg leading-relaxed font-light">
+              To improve income in agricultural, commercial, and manufacturing micro, small, and medium enterprises in Sierra Leone by providing loans at reasonable interest rates and encouraging savings.
             </p>
           </motion.div>
         </motion.div>
       </section>
 
-      {/* 4. STRATEGIC OBJECTIVES */}
+      {/* 5. STRATEGIC OBJECTIVES */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div 
@@ -135,21 +152,34 @@ export default function AboutPage() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid md:grid-cols-1 lg:grid-cols-3 gap-8"
           >
-            <ObjectiveCard icon="📚" title="Education" text="Mobilizing resources for educational opportunities for vulnerable children." />
-            <ObjectiveCard icon="🛡️" title="Protection" text="Ensuring children are safe, healthy and protected within their homes." />
-            <ObjectiveCard icon="💧" text="Promoting water, sanitation and hygiene practices and climate action." title="WASH" />
-            <ObjectiveCard icon="🌱" title="Livelihoods" text="Supporting community-led livelihood initiatives with sustainable alternatives." />
-            <ObjectiveCard icon="🏥" title="SRHR" text="Building capacity on sexual reproductive health and rights across communities." />
+            <ObjectiveCard 
+              icon="📈" 
+              title="Scale & Reach" 
+              text="To service the need for microfinance services of 950,000 clients by 2030, resulting in improved standards of living and stronger civil society." 
+            />
+            <ObjectiveCard 
+              icon="🌍" 
+              title="Economic Growth" 
+              text="To contribute to local and regional economic growth by supporting micro-enterprises and sustainable income-generating activities." 
+            />
+            <ObjectiveCard 
+              icon="⚖️" 
+              title="Sustainability" 
+              text="To achieve financial sustainability to ensure the long-term viability of our operations and continued service to our clients." 
+            />
           </motion.div>
         </div>
       </section>
 
-      {/* 5. WHERE WE WORK */}
+      {/* 6. WHERE WE WORK */}
       <section className="py-24">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-12">Our Operational Footprint</h2>
+          <h2 className="text-3xl font-bold mb-4 text-gray-900">Our Operational Footprint</h2>
+          <p className="text-gray-500 mb-12 max-w-2xl mx-auto text-lg">
+            Strategically located to serve commercial hubs and smallholder farming communities.
+          </p>
           <motion.div 
             variants={staggerContainer}
             initial="hidden"
@@ -178,7 +208,7 @@ function ObjectiveCard({ icon, title, text }) {
     >
       <div className="text-4xl mb-4">{icon}</div>
       <h3 className="font-bold text-lg mb-2 text-gray-900 uppercase tracking-wide">{title}</h3>
-      <p className="text-gray-600 leading-relaxed">{text}</p>
+      <p className="text-gray-600 leading-relaxed text-sm">{text}</p>
     </motion.div>
   );
 }
