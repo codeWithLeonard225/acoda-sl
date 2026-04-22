@@ -64,7 +64,7 @@ export default function HomePage() {
             transition={{ delay: 0.4 }}
             className="text-lg md:text-xl max-w-2xl mx-auto mb-10 text-blue-100"
           >
-            A female-led national organization providing MSMEs, cooperatives, and farmers
+            A female-led national Microfinance Institution providing MSMEs, cooperatives, and farmers
             with the financial tools to transform their livelihoods in Sierra Leone.
           </motion.p>
           <div className="flex flex-wrap justify-center gap-4">

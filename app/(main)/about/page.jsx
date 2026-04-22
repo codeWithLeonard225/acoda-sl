@@ -188,8 +188,8 @@ export default function AboutPage() {
             className="grid md:grid-cols-3 gap-8"
           >
             <LocationCard city="Western Urban" detail="Administrative Headquarters" />
-            <LocationCard city="Bo District" detail="Tinkonko Chiefdom" />
-            <LocationCard city="Moyamba District" detail="Kori Chiefdom" />
+            {/* <LocationCard city="Bo District" detail="Tinkonko Chiefdom" /> */}
+            <LocationCard city="24 Waterloo-Jui Highway" detail="Abibatu Turay" />
           </motion.div>
         </div>
       </section>

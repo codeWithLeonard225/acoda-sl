@@ -29,7 +29,7 @@ export default function Header() {
             height={45}
           />
           <span className="font-bold text-blue-700 text-lg">
-            ACODA
+            ACODA Microfinance
           </span>
         </Link>
 
